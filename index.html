@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>For Anna 💖</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      overflow: hidden;
+      color: white;
+    }
+
+    h1 {
+      margin-top: 80px;
+      font-size: 40px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+    }
+
+    p {
+      font-size: 20px;
+      width: 80%;
+      margin: 20px auto;
+      line-height: 1.6;
+    }
+
+    button {
+      font-size: 20px;
+      padding: 12px 25px;
+      margin: 20px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    #yesBtn {
+      background-color: white;
+      color: #ff4d6d;
+      font-weight: bold;
+    }
+
+    #yesBtn:hover {
+      transform: scale(1.1);
+    }
+
+    #noBtn {
+      background-color: #ff4d6d;
+      color: white;
+      position: absolute;
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 18px;
+      animation: float 6s linear infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh); opacity: 1; }
+      100% { transform: translateY(-10vh); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Anna 💕</h1>
+
+  <p>
+    I know you act all tough… like you don’t need anyone 😌<br>
+    But I see you. And I know you deserve someone who shows up,
+    stays consistent, and loves you properly.
+  </p>
+
+  <h1>So tell me… will you be my Valentine? ❤️</h1>
+
+  <button id="yesBtn" onclick="yesClicked()">Yes… obviously 💖</button>
+  <button id="noBtn" onmouseover="moveButton()">No 🙄</button>
+
+  <script>
+    function yesClicked() {
+      document.body.innerHTML = `
+        <h1 style="margin-top:120px;">
+          I knew it 😌❤️<br><br>
+          You don’t have to act tough with me, Anna.<br>
+          I’ve got you. Always. 💞
+        </h1>
+      `;
+    }
+
+    function moveButton() {
+      const button = document.getElementById("noBtn");
+      const messages = [
+        "Stop playing 😌",
+        "You know you want to 💕",
+        "Be serious Anna 😏",
+        "Don’t act tough now 👀",
+        "Just click yes already ❤️"
+      ];
+
+      button.innerText = messages[Math.floor(Math.random() * messages.length)];
+
+      const x = Math.random() * (window.innerWidth - 150);
+      const y = Math.random() * (window.innerHeight - 100);
+
+      button.style.left = x + "px";
+      button.style.top = y + "px";
+    }
+
+    function createHeart(
